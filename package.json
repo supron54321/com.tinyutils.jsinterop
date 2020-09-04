@@ -1,0 +1,11 @@
+{
+  "name": "com.tinyutils.interop",
+  "displayName": "Tiny JavaScript Interop",
+  "version": "1.0.0",
+  "unity": "2019.3",
+  "description": "Advanced JavaScript interoperability library compatible with DOTS runtime. Supports exceptions and serialization of complex objects.",
+  "dependencies": {
+    "com.unity.collections": "0.9.0-preview.5",
+    "com.tinyutils.msgpack": "1.0.0"
+  }
+}
