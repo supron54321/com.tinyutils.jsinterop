@@ -52,6 +52,22 @@ namespace TinyUtils.JsInterop.CodeGen
             ilProcessor.CallMethod(writerVar, _typeHelper.MsgPackWriter.GetUnsafeBufferPtr).Store(paramsPtr);
             ilProcessor.CallMethod(writerVar, _typeHelper.MsgPackWriter.GetBufferLength).Store(paramsLen);
             ilProcessor.CallStatic(_typeHelper.JsBridge.CallJsFunction, functionPtr, paramsPtr, paramsLen).Store(returnPtr);
+
+            var retAsArrayVar = ilProcessor.AddVariable(_typeHelper.NativeByteArray.TypeRef);
+            ilProcessor.CallStatic(_typeHelper.JsInteropUtils.JsDataPointerToNativeArray, returnPtr).Store(retAsArrayVar);
+            
+            var readerVar = ilProcessor.AddVariable(_typeHelper.MsgPackReader.TypeRef);
+            ilProcessor.Emit(OpCodes.Ldloc, retAsArrayVar);
+            ilProcessor.Emit(OpCodes.Newobj, _typeHelper.MsgPackReader.Ctor);
+            ilProcessor.Emit(OpCodes.Stloc, readerVar);
+
+            ilProcessor.CallStatic(_typeHelper.JsInteropUtils.DecodeErrorAndThrow, readerVar, retAsArrayVar, returnPtr);
+
+            if (method.ReturnType.FullName != "System.Void")
+            {
+                var retValueVar = ilProcessor.AddVariable(method.ReturnType);
+                ilProcessor.CallStatic(_serialization.GetTypeDeserializationMethod(method.ReturnType), readerVar);
+            }
             
             ilProcessor.Emit(OpCodes.Ret);
         }

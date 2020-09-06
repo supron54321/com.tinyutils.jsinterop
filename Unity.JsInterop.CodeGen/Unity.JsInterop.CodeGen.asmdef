@@ -3,7 +3,7 @@
     "references": [
         "Unity.Collections",
         "TinyUtils.JsInterop",
-        "TinyMsgPack"
+        "TinyUtils.MsgPack"
     ],
     "includePlatforms": [
         "Editor"
