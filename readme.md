@@ -32,12 +32,12 @@ All the magic comes from ILPostProcessor. It's a new and undocumented feature in
 
 # Installation
 
-Right now the only way to install it is to download both:
+Currently the only way to install it is to download both:
 
-com.tinyutils.jsinterop
-com.tinyutils.msgpack
+* [com.tinyutils.jsinterop](https://github.com/supron54321/com.tinyutils.jsinterop)
+* [com.tinyutils.msgpack](https://github.com/supron54321/com.tinyutils.msgpack)
 
-and copy it to "Packages" folder. 
+and copy them into "Packages" folder.
 
 # Supported types
 
@@ -56,4 +56,4 @@ JsCallback supports exceptions transfer between C# and JS. JsFunction support wi
 
 * Containers support
 * Reference type support (transfer reference instead of serialized copy)
-* delegates support
+* Delegates transfer support
