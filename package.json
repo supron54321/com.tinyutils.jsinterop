@@ -6,6 +6,7 @@
   "description": "Advanced JavaScript interoperability library compatible with DOTS runtime. Supports exceptions and serialization of complex objects.",
   "dependencies": {
     "com.unity.collections": "0.9.0-preview.5",
+    "com.unity.nuget.mono-cecil": "0.1.6-preview.2",
     "com.tinyutils.msgpack": "1.0.0"
   }
 }
