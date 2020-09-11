@@ -32,12 +32,19 @@ All the magic comes from ILPostProcessor. It's a new and undocumented feature in
 
 # Installation
 
-Currently the only way to install it is to download both:
+There are two ways to install this repository:
 
-* [com.tinyutils.jsinterop](https://github.com/supron54321/com.tinyutils.jsinterop)
+1. Clone both repositories into your "Packages" folder:
+
 * [com.tinyutils.msgpack](https://github.com/supron54321/com.tinyutils.msgpack)
+* [com.tinyutils.jsinterop](https://github.com/supron54321/com.tinyutils.jsinterop)
 
-and copy them into "Packages" folder.
+2. Open package manager, click "+" button, and select "Add package from git URL...". Then paste HTTPS clone URLs:
+
+https://github.com/supron54321/com.tinyutils.msgpack.git
+https://github.com/supron54321/com.tinyutils.jsinterop.git
+
+This method sometimes does not work, so if you have any problems, try restart unity and try again or use first method.
 
 # Supported types
 
