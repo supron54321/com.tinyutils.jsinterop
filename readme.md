@@ -1,6 +1,6 @@
 # About this project
 
-Tiny JsInterop is a small library which helps with C# <-> JavaScript interoparability in unity engine (Tiny/DOTS runtime and WebGL builds). Idea is simple. Add one attribute and let the system do the job.
+Tiny JsInterop is a small library which helps with C# <-> JavaScript interoperability in unity engine (Tiny/DOTS runtime and WebGL builds). Idea is simple. Add one attribute and let the system do the job.
 
 # Example
 
