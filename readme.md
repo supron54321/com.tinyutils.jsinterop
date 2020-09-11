@@ -56,6 +56,7 @@ JsCallback supports exceptions transfer between C# and JS. JsFunction support wi
 
 # Known issues
 
+* Void return type is not implemented for JsCallback
 * JsCallback does not work in Development mode (NativeList bug)
 * Arrays and other containers are not supported yet
 

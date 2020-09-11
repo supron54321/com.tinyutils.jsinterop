@@ -181,6 +181,10 @@ namespace TinyUtils.JsInterop.CodeGen
                     CatchType = _typeHelper.MainModule.ImportReference(typeof(Exception))
                 });
             }
+            else
+            {
+                throw new NotImplementedException($"Void return type is not implemented for JsCallback");
+            }
 
             return wrapperMethod;
         }
