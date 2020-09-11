@@ -44,15 +44,13 @@
         var pathString = UTF8ToString(pathPtr);
         
         var funcPtr = window.Interop.functionArray.length;
-        window.Interop.functionArray.push(Function('args', `
-            return ${pathString}(...args);
-        `));
+        window.Interop.functionArray.push(Function('args', 'return '+pathString+'(...args);'));
         return funcPtr;
     },
     _CallJsFunction: function(functionPtr, argsPtr, argsLength) {
         var fcn = window.Interop.functionArray[functionPtr];
         if(!fcn)
-            return window.Interop.ReturnThrow(new Error(`Invalid function pointer ${functionPtr}`));
+            return window.Interop.ReturnThrow(new Error("Invalid function pointer "+functionPtr));
         try{
             var ret = fcn(window.Interop.DeserializeFromHeap(argsPtr, argsLength));
             return window.Interop.ReturnSuccess(ret);

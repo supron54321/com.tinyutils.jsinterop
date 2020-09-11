@@ -5,6 +5,9 @@ using Mono.Cecil;
 using Mono.Cecil.Cil;
 using TinyUtils.JsInterop.CodeGen.Helper;
 using Unity.Collections;
+#if UNITY_EDITOR
+using UnityEngine;
+#endif
 
 namespace TinyUtils.JsInterop.CodeGen
 {
@@ -47,6 +50,11 @@ namespace TinyUtils.JsInterop.CodeGen
             
             var constructor = new MethodDefinition(".cctor", MethodAttributes.Private | MethodAttributes.HideBySig | MethodAttributes.SpecialName | MethodAttributes.RTSpecialName | MethodAttributes.Static, _typeHelper.MainModule.TypeSystem.Void);
             initializerType.Methods.Add(constructor);
+            
+            
+#if UNITY_EDITOR
+            constructor.CustomAttributes.Add(new CustomAttribute(_typeHelper.MainModule.ImportReference(typeof(RuntimeInitializeOnLoadMethodAttribute).GetConstructors()[0])));
+#endif
             
             var ilProcessor = constructor.Body.GetILProcessor();
             ilProcessor.Emit(OpCodes.Ldstr, methodPath);
