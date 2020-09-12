@@ -41,8 +41,8 @@ There are two ways to install this repository:
 
 2. Open package manager, click "+" button, and select "Add package from git URL...". Then paste HTTPS clone URLs:
 
-https://github.com/supron54321/com.tinyutils.msgpack.git
-https://github.com/supron54321/com.tinyutils.jsinterop.git
+* https://github.com/supron54321/com.tinyutils.msgpack.git
+* https://github.com/supron54321/com.tinyutils.jsinterop.git
 
 This method sometimes does not work, so if you have any problems, try restart unity and try again or use first method.
 
